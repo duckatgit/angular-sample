@@ -1,0 +1,15 @@
+<div
+  #sideBar
+  class="dashboard"
+  [ngClass]="{ 'small-sidebar': isToogleSidebar }"
+>
+  <app-sidebar
+    [isHaveSmallSideBar]="isToogleSidebar"
+    [smallHeader]="smallHeader"
+    (mobileHeader)="addHeaders($event)"
+  ></app-sidebar>
+  <div class="right-sidebar">
+    <app-header (mobileHeader)="addHeader($event)"></app-header>
+    <router-outlet> </router-outlet>
+  </div>
+</div>

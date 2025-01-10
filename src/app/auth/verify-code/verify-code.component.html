@@ -1,0 +1,45 @@
+<div class="login-page verify-page" *ngIf="resetData">
+  <mat-card class="auth-card">
+    <div class="login-container">
+      <h2 class="heading-login-text text-center">Verify</h2>
+
+      <div class="centertext" style="margin-bottom: 24px">
+        <p>
+          Enter the code we have sent to your
+          {{ resetData.type === "email" ? "email" : "mobile number" }}.
+        </p>
+        <p class="link">{{ resetValue }}</p>
+      </div>
+
+      <div class="form-group d-flex justify-content-between">
+        <input type="text" class="form-control" [(ngModel)]="codeOne" (keyup)="onKeyupCodeOne($event)"
+          (keypress)="commonService.numberOnly($event)" maxlength="1" #codeOneEle />
+        <input type="text" class="form-control" [(ngModel)]="codeTwo" (keyup)="onKeyupCodeTwo($event)"
+          (keypress)="commonService.numberOnly($event)" maxlength="1" #codeTwoEle />
+        <input type="text" class="form-control" [(ngModel)]="codeThree" (keyup)="onKeyupCodeThree($event)"
+          (keypress)="commonService.numberOnly($event)" maxlength="1" #codeThreeEle />
+        <input type="text" class="form-control" [(ngModel)]="codeFour" (keyup)="onKeyupCodeFour($event)"
+          (keypress)="commonService.numberOnly($event)" maxlength="1" #codeFourEle />
+        <input type="text" class="form-control" [(ngModel)]="codeFive" (keyup)="onKeyupCodeFive($event)"
+          (keypress)="commonService.numberOnly($event)" maxlength="1" #codeFiveEle />
+        <input type="text" class="form-control" [(ngModel)]="codeSix" (keyup)="onKeyupCodeSix($event)"
+          (keypress)="commonService.numberOnly($event)" maxlength="1" #codeSixEle />
+      </div>
+
+      <div class="d-flex" style="justify-content: space-between">
+        <p *ngIf="!isTimeOut">Resend Code in <span class="timer-color">00:{{ countDown }}</span></p>
+        <p *ngIf="isTimeOut">
+          <a href="javascript:void(0)" (click)="onResendCode()">Resend Code</a>
+        </p>
+      </div>
+      <div class="text-center">
+        <button class="continue mt-4" mat-raised-button color="primary" [disabled]="!isValid" (click)="onVerify()">
+          Verify
+        </button>
+      </div>
+      <div class="already text-center" style="">
+        Back to <a routerLink="/login">Login</a>
+      </div>
+    </div>
+  </mat-card>
+</div>

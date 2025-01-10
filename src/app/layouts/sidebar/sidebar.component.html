@@ -1,0 +1,734 @@
+<div class="outer-side-bar">
+  <div #smallHeaderBar class="sidebar">
+    <i class="far fa-times cross-icon" (click)="addMobileHeader(show)"></i>
+    <img
+      *ngIf="isToggle === false"
+      (click)="onToggleSidebar()"
+      src="../../../assets/icons/arrow-left-sidebar.png"
+      class="side-bar-icon-left"
+    />
+    <img
+      *ngIf="isToggle === true"
+      (click)="onToggleSidebar()"
+      src="../../../assets/icons/arrow-right-sidebar.png"
+      class="side-bar-icon-right"
+    />
+    <div class="inner-small-sidebar">
+      <div class="w-100">
+        <div class="logo text-center">
+          <img
+            src="../../../assets/images/sidebar-logo.png"
+            class="small-image"
+          />
+        </div>
+        <ul>
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active: getActiveMenu('/user/dashboard') === true
+                }"
+                [expanded]="
+                  currentRoute === '/user/patients/' + id ||
+                  currentRoute === '/user/schedule' ||
+                  currentRoute === '/user/patients'
+                "
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>MY PORTAL</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <ul class="child-leftsidebar">
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant' ||
+                      userAccess === 'front-desk'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                        >
+                          <g
+                            id="Iconly_Bulk_Category"
+                            data-name="Iconly/Bulk/Category"
+                            transform="translate(0 0)"
+                          >
+                            <rect
+                              id="Iconly_Bulk_Category_Background_"
+                              data-name="Iconly/Bulk/Category (Background)"
+                              width="20"
+                              height="20"
+                              transform="translate(0 0)"
+                              fill="none"
+                            />
+                            <g id="Category" transform="translate(2.034 2.034)">
+                              <path
+                                id="Fill_1"
+                                data-name="Fill 1"
+                                d="M4.821,0A2.074,2.074,0,0,1,6.886,2.083V4.861A2.074,2.074,0,0,1,4.821,6.944H2.066A2.074,2.074,0,0,1,0,4.861V2.083A2.074,2.074,0,0,1,2.066,0Z"
+                                transform="translate(9.386)"
+                                fill="#d3d9ea"
+                              />
+                              <path
+                                id="Combined_Shape"
+                                data-name="Combined Shape"
+                                d="M11.451,16.274a2.075,2.075,0,0,1-2.065-2.083V11.412A2.074,2.074,0,0,1,11.451,9.33h2.756a2.074,2.074,0,0,1,2.065,2.083v2.778a2.075,2.075,0,0,1-2.065,2.083Zm-9.385,0A2.075,2.075,0,0,1,0,14.191V11.412A2.074,2.074,0,0,1,2.066,9.33H4.821a2.074,2.074,0,0,1,2.065,2.083v2.778a2.075,2.075,0,0,1-2.065,2.083Zm0-9.33A2.074,2.074,0,0,1,0,4.861V2.083A2.074,2.074,0,0,1,2.066,0H4.821A2.074,2.074,0,0,1,6.886,2.083V4.861A2.074,2.074,0,0,1,4.821,6.945Z"
+                                fill="#d3d9ea"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <span> Dashboard</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant' ||
+                      userAccess === 'front-desk'
+                    "
+                    [ngClass]="{
+                      active: getActiveMenu('/user/schedule') === true
+                    }"
+                    (click)="onClickMenu('/user/schedule')"
+                  >
+                    <a [routerLink]="'/user/schedule'">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="15.769"
+                          height="18.021"
+                          viewBox="0 0 15.769 18.021"
+                        >
+                          <path
+                            id="Icon_awesome-calendar-alt"
+                            data-name="Icon awesome-calendar-alt"
+                            d="M0,16.332a1.69,1.69,0,0,0,1.69,1.69h12.39a1.69,1.69,0,0,0,1.69-1.69V6.758H0Zm11.263-6.9a.424.424,0,0,1,.422-.422h1.408a.424.424,0,0,1,.422.422v1.408a.424.424,0,0,1-.422.422H11.686a.424.424,0,0,1-.422-.422Zm0,4.505a.424.424,0,0,1,.422-.422h1.408a.424.424,0,0,1,.422.422v1.408a.424.424,0,0,1-.422.422H11.686a.424.424,0,0,1-.422-.422ZM6.758,9.433a.424.424,0,0,1,.422-.422H8.588a.424.424,0,0,1,.422.422v1.408a.424.424,0,0,1-.422.422H7.18a.424.424,0,0,1-.422-.422Zm0,4.505a.424.424,0,0,1,.422-.422H8.588a.424.424,0,0,1,.422.422v1.408a.424.424,0,0,1-.422.422H7.18a.424.424,0,0,1-.422-.422ZM2.253,9.433a.424.424,0,0,1,.422-.422H4.083a.424.424,0,0,1,.422.422v1.408a.424.424,0,0,1-.422.422H2.675a.424.424,0,0,1-.422-.422Zm0,4.505a.424.424,0,0,1,.422-.422H4.083a.424.424,0,0,1,.422.422v1.408a.424.424,0,0,1-.422.422H2.675a.424.424,0,0,1-.422-.422ZM14.079,2.253H12.39V.563A.565.565,0,0,0,11.827,0H10.7a.565.565,0,0,0-.563.563v1.69H5.632V.563A.565.565,0,0,0,5.069,0H3.942a.565.565,0,0,0-.563.563v1.69H1.69A1.69,1.69,0,0,0,0,3.942v1.69H15.769V3.942A1.69,1.69,0,0,0,14.079,2.253Z"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span>Schedule</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant' ||
+                      userAccess === 'front-desk'
+                    "
+                    [ngClass]="{
+                      active: getActiveMenu('/user/patients')
+                    }"
+                    (click)="onClickMenu('/user/patients/' + id)"
+                  >
+                    <a [routerLink]="'/user/patients'">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16.044"
+                          height="16.044"
+                          viewBox="0 0 16.044 16.044"
+                        >
+                          <path
+                            id="Icon_awesome-user-alt"
+                            data-name="Icon awesome-user-alt"
+                            d="M8.022,9.025A4.512,4.512,0,1,0,3.51,4.512,4.514,4.514,0,0,0,8.022,9.025Zm4.011,1H10.306a5.455,5.455,0,0,1-4.569,0H4.011A4.011,4.011,0,0,0,0,14.038v.5a1.5,1.5,0,0,0,1.5,1.5H14.54a1.5,1.5,0,0,0,1.5-1.5v-.5A4.011,4.011,0,0,0,12.033,10.027Z"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span>Patients</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active:
+                    getActiveMenu('/user/telehealth') === true ? true : isOpen
+                }"
+                [expanded]="currentRoute === '/user/telehealth'"
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>TELEHEALTH</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul class="child-leftsidebar">
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant' ||
+                      userAccess === 'front-desk'
+                    "
+                    [ngClass]="{
+                      active: getActiveMenu('/user/telehealth') === true
+                    }"
+                    (click)="onClickMenu('/user/telehealth')"
+                  >
+                    <a [routerLink]="'/user/telehealth'">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="17.28"
+                          height="17.28"
+                          viewBox="0 0 17.28 17.28"
+                        >
+                          <path
+                            id="Icon_map-health"
+                            data-name="Icon map-health"
+                            d="M18,6.48a.361.361,0,0,0-.36-.36H12.96a.361.361,0,0,1-.36-.36V1.08a.361.361,0,0,0-.36-.36H6.48a.361.361,0,0,0-.36.36V5.76a.361.361,0,0,1-.36.36H1.08a.361.361,0,0,0-.36.36v5.76a.361.361,0,0,0,.36.36H5.76a.361.361,0,0,1,.36.36v4.68a.361.361,0,0,0,.36.36h5.76a.361.361,0,0,0,.36-.36V12.96a.361.361,0,0,1,.36-.36h4.68a.361.361,0,0,0,.36-.36Z"
+                            transform="translate(-0.72 -0.72)"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span>Telehealth</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active:
+                    getActiveMenu('/user/Monitoring') === true ? true : isOpen
+                }"
+                [expanded]="currentRoute === '/user/Monitoring'"
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>MONITORING</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul class="child-leftsidebar">
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant' ||
+                      userAccess === 'front-desk'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="17.388"
+                          height="15.456"
+                          viewBox="0 0 17.388 15.456"
+                        >
+                          <path
+                            id="Icon_awesome-desktop"
+                            data-name="Icon awesome-desktop"
+                            d="M15.939,0H1.449A1.449,1.449,0,0,0,0,1.449v9.66a1.449,1.449,0,0,0,1.449,1.449h5.8l-.483,1.449H4.589a.725.725,0,1,0,0,1.449H12.8a.725.725,0,0,0,0-1.449H10.626l-.483-1.449h5.8a1.449,1.449,0,0,0,1.449-1.449V1.449A1.449,1.449,0,0,0,15.939,0Zm-.483,10.626H1.932V1.932H15.456Z"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span> Monitoring</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active:
+                    getActiveMenu('/user/Payments') === true ? true : isOpen
+                }"
+                [expanded]="currentRoute === '/user/Payments'"
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>PAYMENTS</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul class="child-leftsidebar">
+                  <li *ngIf="userAccess === 'administrator'">
+                    <a class="not-active">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="17.388"
+                          height="13.911"
+                          viewBox="0 0 17.388 13.911"
+                        >
+                          <path
+                            id="Icon_material-payment"
+                            data-name="Icon material-payment"
+                            d="M18.649,6H4.739a1.725,1.725,0,0,0-1.73,1.739L3,18.172a1.733,1.733,0,0,0,1.739,1.739H18.649a1.733,1.733,0,0,0,1.739-1.739V7.739A1.733,1.733,0,0,0,18.649,6Zm0,12.172H4.739V12.955H18.649Zm0-8.694H4.739V7.739H18.649Z"
+                            transform="translate(-3 -6)"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span> Payments</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active:
+                    getActiveMenu('/user/expenses') === true ? true : isOpen
+                }"
+                [expanded]="currentRoute === '/user/expenses'"
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>EXPENSES</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul class="child-leftsidebar">
+                  <li *ngIf="userAccess === 'administrator'">
+                    <a class="not-active">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="10.02"
+                          height="17.817"
+                          viewBox="0 0 10.02 17.817"
+                        >
+                          <path
+                            id="Icon_awesome-dollar-sign"
+                            data-name="Icon awesome-dollar-sign"
+                            d="M7.281,8.122l-3.758-1.1a1.026,1.026,0,0,1,.289-2.011H6.119a2.124,2.124,0,0,1,1.19.365.542.542,0,0,0,.679-.07L9.2,4.124a.564.564,0,0,0-.063-.853,4.921,4.921,0,0,0-3.01-1.044V.557A.558.558,0,0,0,5.569,0H4.456A.558.558,0,0,0,3.9.557v1.67H3.812A3.813,3.813,0,0,0,.019,6.389,3.984,3.984,0,0,0,2.935,9.751L6.5,10.795a1.026,1.026,0,0,1-.289,2.011H3.906a2.124,2.124,0,0,1-1.19-.365.542.542,0,0,0-.679.07L.826,13.694a.564.564,0,0,0,.063.853A4.921,4.921,0,0,0,3.9,15.59v1.67a.558.558,0,0,0,.557.557H5.569a.558.558,0,0,0,.557-.557V15.583A3.931,3.931,0,0,0,9.8,13.053,3.821,3.821,0,0,0,7.281,8.122Z"
+                            transform="translate(-0.003)"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span> Expenses</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active:
+                    getActiveMenu('/user/communications') === true
+                      ? true
+                      : isOpen
+                }"
+                [expanded]="currentRoute === '/user/communications'"
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>COMMUNICATIONS</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul class="child-leftsidebar">
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant' ||
+                      userAccess === 'front-desk'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="15.745"
+                          height="15.745"
+                          viewBox="0 0 15.745 15.745"
+                        >
+                          <path
+                            id="Icon_material-chat"
+                            data-name="Icon material-chat"
+                            d="M17.171,3H4.575A1.572,1.572,0,0,0,3.008,4.575L3,18.745,6.149,15.6H17.171a1.579,1.579,0,0,0,1.575-1.575V4.575A1.579,1.579,0,0,0,17.171,3ZM6.149,8.511H15.6v1.575H6.149Zm6.3,3.936h-6.3V10.873h6.3ZM15.6,7.724H6.149V6.149H15.6Z"
+                            transform="translate(-3 -3)"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span>Communications</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active:
+                    getActiveMenu('/user/reports') === true ? true : isOpen
+                }"
+                [expanded]="currentRoute === '/user/reports'"
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>REPORTS</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul class="child-leftsidebar">
+                  <li *ngIf="userAccess === 'administrator'">
+                    <a class="not-active">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="17.753"
+                          height="13.315"
+                          viewBox="0 0 17.753 13.315"
+                        >
+                          <path
+                            id="Icon_awesome-chart-area"
+                            data-name="Icon awesome-chart-area"
+                            d="M17.337,15.6a.417.417,0,0,1,.416.416V17.4a.417.417,0,0,1-.416.416H.416A.417.417,0,0,1,0,17.4V4.916A.417.417,0,0,1,.416,4.5H1.8a.417.417,0,0,1,.416.416V15.6ZM12.923,7.811,9.986,9.77,7.028,5.828a.417.417,0,0,0-.69.035L3.329,10.88v3.606H16.643L13.526,7.974a.416.416,0,0,0-.6-.163Z"
+                            transform="translate(0 -4.5)"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span>Reports</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <!-------->
+
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active:
+                    getActiveMenu('/user/settings/details') === true
+                      ? true
+                      : isOpen
+                }"
+                [expanded]="
+                  currentRoute === '/user/settings/details' ||
+                  currentRoute === '/user/settings/staff' ||
+                  currentRoute === '/user/settings/tags'
+                "
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>SETTINGS</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <ul class="child-leftsidebar">
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant'
+                    "
+                    [ngClass]="{
+                      active: getActiveMenu('/user/settings/details') === true
+                    }"
+                    (click)="onClickMenu('/user/settings/details')"
+                    [routerLink]="'/user/settings/details'"
+                    style="cursor: pointer"
+                  >
+                    <a href="javascript:void(0)">
+                      <div class="side-bar-icons">
+                        <img src="../../../../assets/icons/info.svg" class="" />
+                      </div>
+                      <span>Practice Details</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="userAccess === 'administrator'"
+                    [ngClass]="{
+                      active: getActiveMenu('/user/settings/staff') === true
+                    }"
+                    (click)="onClickMenu('/user/settings/staff')"
+                    [routerLink]="'/user/settings/staff'"
+                    style="cursor: pointer"
+                  >
+                    <a href="javascript:void(0)">
+                      <div class="side-bar-icons">
+                        <img src="../../../../assets/icons/user.svg" class="" />
+                      </div>
+                      <span>Practice Staff</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="side-bar-icons">
+                        <img
+                          src="../../../../assets/icons/user-calendar.svg"
+                          class=""
+                        />
+                      </div>
+                      <span>Calendar</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="side-bar-icons">
+                        <img src="../../../../assets/icons/mail.svg" class="" />
+                      </div>
+                      <span>Communications</span>
+                    </a>
+                  </li>
+
+                  <li *ngIf="userAccess === 'administrator'">
+                    <a class="not-active">
+                      <div class="side-bar-icons">
+                        <img src="../../../../assets/icons/sell.svg" class="" />
+                      </div>
+                      <span>Pricing Catalog</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="side-bar-icons">
+                        <img
+                          src="../../../../assets/icons/description.svg"
+                          class=""
+                        />
+                      </div>
+                      <span>Consent Forms</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="side-bar-icons">
+                        <img
+                          src="../../../../assets/icons/medication.svg"
+                          class=""
+                        />
+                      </div>
+                      <span>Medications</span>
+                    </a>
+                  </li>
+
+                  <li
+                    *ngIf="userAccess === 'administrator'"
+                    [ngClass]="{
+                      active: getActiveMenu('/user/settings/tags') === true
+                    }"
+                    (click)="onClickMenu('/user/settings/tags')"
+                    [routerLink]="'/user/settings/tags'"
+                    style="cursor: pointer"
+                  >
+                    <a href="javascript:void(0)">
+                      <div class="side-bar-icons">
+                        <img src="../../../../assets/icons/sell.svg" class="" />
+                      </div>
+                      <span>Tags</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+
+          <!----->
+          <li class="settings-li">
+            <div class="lx-submenu-content">
+              <mat-expansion-panel
+                class="lx-subsidebar-menus"
+                *ngIf="
+                  userAccess === 'administrator' || userAccess === 'consultant'
+                "
+                [ngClass]="{
+                  active: getActiveMenu('/user/help') === true ? true : isOpen
+                }"
+                [expanded]="currentRoute === '/user/help'"
+                #matExpansionPanel
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="{
+                    activeheader: isOpen === true
+                  }"
+                >
+                  <mat-panel-title class="lx-panel-title">
+                    <div class="lx-link">
+                      <span>HELP</span>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul class="child-leftsidebar">
+                  <li
+                    *ngIf="
+                      userAccess === 'administrator' ||
+                      userAccess === 'consultant' ||
+                      userAccess === 'front-desk'
+                    "
+                  >
+                    <a class="not-active">
+                      <div class="icon-iamge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="17.753"
+                          height="17.753"
+                          viewBox="0 0 17.753 17.753"
+                        >
+                          <path
+                            id="Icon_ionic-ios-help-circle"
+                            data-name="Icon ionic-ios-help-circle"
+                            d="M12.251,3.375a8.876,8.876,0,1,0,8.876,8.876A8.875,8.875,0,0,0,12.251,3.375Zm-.184,12.973a.88.88,0,1,1,.918-.879A.891.891,0,0,1,12.068,16.348Zm1.716-4.135c-.743.431-.994.747-.994,1.293v.337H11.308l-.013-.367A1.777,1.777,0,0,1,12.3,11.6c.721-.431,1.024-.7,1.024-1.233a1.036,1.036,0,0,0-1.148-.918,1.08,1.08,0,0,0-1.144,1.05H9.52c.03-1.374,1.046-2.347,2.761-2.347,1.6,0,2.7.888,2.7,2.164A2.089,2.089,0,0,1,13.784,12.213Z"
+                            transform="translate(-3.375 -3.375)"
+                            fill="#d3d9ea"
+                          />
+                        </svg>
+                      </div>
+                      <span> Help</span>
+                    </a>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

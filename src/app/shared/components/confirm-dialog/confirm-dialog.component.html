@@ -1,0 +1,30 @@
+<div class="dialog confirm-dialog">
+  <div class="dialog-header">
+    <h1 mat-dialog-title>{{ title }}?</h1>
+  </div>
+
+  <div mat-dialog-content class="dialog-content text-center">
+    <img src="../../../../assets/images/Group 357.png" style="width: 80px" />
+    <p class="pt-2">{{ content }}</p>
+  </div>
+
+  <div class="dialog-footer" mat-dialog-actions>
+    <button
+      type="button"
+      class="cancel"
+      mat-raised-button
+      (click)="dialogRef.close(false)"
+    >
+      Cancel
+    </button>
+
+    <button
+      type="button"
+      class="common-button ml-3"
+      mat-raised-button
+      (click)="dialogRef.close(true)"
+    >
+      Ok
+    </button>
+  </div>
+</div>

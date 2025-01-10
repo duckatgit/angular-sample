@@ -1,0 +1,90 @@
+<div class="login-page">
+  <mat-card class="auth-card">
+    <div class="login-container">
+      <h2 class="heading-login-text text-center">Create an Account</h2>
+
+      <h3 class="account">Account Details</h3>
+
+      <form
+        *ngIf="createAccountForm"
+        [formGroup]="createAccountForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="form-group mb-b">
+          <label>Practice Name</label>
+          <div class="position-relative">
+            <img
+              src="../../../assets/images/user-name.png"
+              class="position-icon uername"
+            />
+            <input
+              type="text"
+              formControlName="practiceName"
+              placeholder="Practice Name"
+              class="form-control is-invalid"
+              [ngClass]="{
+                'is-invalid':
+                  f['practiceName'].invalid &&
+                  (f['practiceName'].dirty || f['practiceName'].touched)
+              }"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Practice Link</label>
+
+          <div class="position-relative">
+            <span class="practice-link space">.treo.cloud</span>
+            <div class="overflow">
+              <div class="position-relative">
+                <img
+                  src="../../../assets/icons/link-icon.png"
+                  class="position-icon link"
+                />
+                <input
+                  type="text"
+                  placeholder="Practice Link"
+                  formControlName="practiceLink"
+                  class="form-control overflow space"
+                  (keypress)="commonService.charNumberOnly($event)"
+                  (paste)="$event.preventDefault()"
+                  [ngClass]="{
+                    'is-invalid':
+                      f['practiceLink'].invalid &&
+                      (f['practiceLink'].dirty || f['practiceLink'].touched)
+                  }"
+                />
+              </div>
+              <p class="input-validation">Special characters not allowed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group already my-4">
+          <mat-checkbox (change)="onChangeAgree($event)" [checked]="isAgree">
+            I agree that have read and accepted the
+            <a routerLink="/term-of-use">Term of Use</a> and
+            <a routerLink="/privacy-policy">Privacy Policy</a>
+          </mat-checkbox>
+        </div>
+
+        <div class="circle-group d-flex pt-2">
+          <div class="circle-nofill"></div>
+          <div class="circle-fill"></div>
+        </div>
+        <div class="text-center">
+          <button
+            type="submit"
+            class="continue mt-4"
+            mat-raised-button
+            color="primary"
+            [disabled]="!createAccountForm.valid || !isAgree"
+          >
+            Create Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,13 @@
+<div class="add-room d-flex justify-content-end" *ngIf="loadedContent">
+  <img
+    src="assets/images/Plus.png"
+    class="cursor-pointer mt-1 mr-2"
+    (click)="dialogRef.close()"
+    style="width: 15px"
+  />
+</div>
+<ngx-doc-viewer
+  [url]="doc"
+  style="width: 100%; height: 90vh"
+  (loaded)="contentLoaded()"
+></ngx-doc-viewer>

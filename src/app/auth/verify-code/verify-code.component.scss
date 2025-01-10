@@ -1,0 +1,32 @@
+h2.heading-login-text {
+  font-size: 21px;
+  margin: 0 0 15px 0;
+}
+
+.centertext {
+  p {
+    color: #aaa;
+    text-align: center;
+    &.link {
+      color: #3568e5;
+    }
+  }
+}
+
+.verify-page input.form-control {
+  height: 90px !important;
+  width: 67px !important;
+  padding: 10px 10px !important;
+  text-align: center;
+  font-size: 45px !important;
+}
+
+.already.text-center {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 25px 0 0 0;
+}
+
+.timer-color {
+  color: #3568e5;
+}

@@ -1,0 +1,13 @@
+.confirm-dialog {
+  ::ng-deep {
+    .mat-dialog-actions {
+      border-top-color: rgba(0, 0, 0, 0.12);
+      border-top-width: 1px;
+      border-top-style: solid;
+      margin: 0 -16px -16px -16px;
+      height: 60px;
+      align-items: center;
+      padding: 0 16px;
+    }
+  }
+}

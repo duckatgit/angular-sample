@@ -1,0 +1,198 @@
+<div class="login-page">
+  <mat-card class="auth-card">
+    <div class="login-container">
+      <h2 class="heading-login-text text-center">Create an Account</h2>
+      <form *ngIf="signupForm" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-b">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>First Name</label>
+                <div class="position-relative">
+                  <img
+                    src="../../../assets/images/user-name.png"
+                    class="position-icon uername"
+                  />
+                  <input
+                    type="text"
+                    formControlName="firstName"
+                    placeholder="John"
+                    class="form-control is-invalid"
+                    maxlength="25"
+                    [ngClass]="{
+                      'is-invalid':
+                        f['firstName'].invalid &&
+                        (f['firstName'].dirty || f['firstName'].touched)
+                    }"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Last Name</label>
+                <div class="position-relative">
+                  <img
+                    src="../../../assets/images/user-name.png"
+                    class="position-icon uername"
+                  />
+                  <input
+                    type="text"
+                    formControlName="lastName"
+                    class="form-control"
+                    maxlength="25"
+                    placeholder="Doe"
+                    [ngClass]="{
+                      'is-invalid':
+                        f['lastName'].invalid &&
+                        (f['lastName'].dirty || f['lastName'].touched)
+                    }"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mb-b">
+          <label>Email Address</label>
+          <div class="position-relative">
+            <img
+              src="../../../assets/images/email.png"
+              class="position-icon Email"
+            />
+            <input
+              type="text"
+              formControlName="email"
+              placeholder="johndoe123@gmail.com"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  f['email'].invalid && (f['email'].dirty || f['email'].touched)
+              }"
+            />
+          </div>
+        </div>
+
+        <div class="form-group mb-b">
+          <label>Password</label>
+          <div class="position-relative">
+            <img
+              src="../../../assets/images/password.png"
+              class="position-icon lock"
+            />
+            <i
+              (click)="onPasswordType()"
+              class="fas {{ isPasswordType ? 'fa-eye' : 'fa-eye-slash' }}"
+            ></i>
+            <input
+              [type]="isPasswordType ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="JohnDoe@123"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  f['password'].invalid &&
+                  (f['password'].dirty || f['password'].touched)
+              }"
+            />
+            <p class="input-validation blue">Must be at least 8 characters</p>
+            <ng-container *ngIf="f['password'].valid">
+              <app-progress-bar [progress]="strengthData.id"></app-progress-bar>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="form-group country-signup mb-b">
+          <label>Phone Number</label>
+          <div class="enter-phone form-control d-flex pl-1">
+            <div class="country-image">
+              <img
+                src="{{
+                  'http://purecatamphetamine.github.io/country-flag-icons/3x2/' +
+                    selectedCountry +
+                    '.svg'
+                }}"
+                width="24px"
+                height="24px"
+              />
+
+              <mat-form-field appearance="fill">
+                <input
+                  type="text"
+                  matInput
+                  maxlength="7"
+                  [formControl]="dialCodeControl"
+                  [matAutocomplete]="auto"
+                  (blur)="onBlurChangeCountry($event)"
+                  (paste)="$event.preventDefault()"
+                />
+                <i class="fas fa-caret-down input-icon"></i>
+                <mat-autocomplete
+                  #auto="matAutocomplete"
+                  [displayWith]="displayFn"
+                  class="flag-dropdown"
+                >
+                  <mat-option
+                    *ngFor="let item of filteredCountryCodes | async"
+                    [value]="item"
+                    (click)="onChangeCountry(item)"
+                  >
+                    <img
+                      src="{{
+                        'http://purecatamphetamine.github.io/country-flag-icons/3x2/' +
+                          item.code +
+                          '.svg'
+                      }}"
+                      width="24px"
+                      height="24px"
+                    />&nbsp; <span>{{ item.dialCode }}</span> &nbsp;
+                    <span>{{ item.code }}</span>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </div>
+
+            <div class="position-relative w-100 c-height">
+              <img
+                src="../../../assets/images/Telephone.png"
+                class="position-icon lock"
+              />
+              <input
+                type="text"
+                formControlName="phone"
+                placeholder="1489237420"
+                class="form-control h-100"
+                (paste)="$event.preventDefault()"
+                (keypress)="commonService.numberOnly($event)"
+                maxlength="10"
+                [ngClass]="{
+                  'is-invalid':
+                    f['phone'].invalid &&
+                    (f['phone'].dirty || f['phone'].touched)
+                }"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="circle-group d-flex pt-2">
+          <div class="circle-fill"></div>
+          <div class="circle-nofill"></div>
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="continue mt-4 mb-2"
+            mat-raised-button
+            color="primary"
+            [disabled]="!signupForm.valid"
+          >
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>

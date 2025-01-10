@@ -1,1 +1,494 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./assets/scss/common";
+@import "./assets/scss/auth";
+@import "nouislider/dist/nouislider.css";
+
+body {
+  font-family: "Inter", sans-serif !important;
+}
+
+mat-card,
+.mat-expansion-panel-header,
+.mat-h3,
+.mat-subheading-2,
+.mat-typography .mat-h3,
+.mat-typography .mat-subheading-2,
+.mat-typography h3,
+.mat-h2,
+.mat-title,
+.mat-typography .mat-h2,
+.mat-typography .mat-title,
+.mat-typography h2,
+.mat-button,
+.mat-raised-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button,
+.mat-fab,
+.mat-mini-fab,
+.mat-expansion-panel-content,
+.smart-container {
+  font-family: "Inter", sans-serif !important;
+}
+
+.form-control {
+  height: 41px !important;
+  font-size: 14px !important;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #242b3a;
+  font-weight: 500;
+}
+.noUi-target {
+  position: relative;
+  height: 7px;
+  width: 150px;
+  background: #a5a4a4e0;
+  border-radius: 5px;
+}
+
+.round-cropper .ngx-image-cropper-preview-container {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.noUi-connect {
+  height: 100%;
+  border-radius: 5px;
+}
+.noUi-horizontal .noUi-handle {
+  width: 26px;
+  height: 22px;
+  right: 11px;
+  top: 3px;
+  left: 148px;
+}
+
+.noUi-handle {
+  width: 30px;
+  height: 30px;
+  background: #3c73aa;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.mat-slider.mat-accent .mat-slider-track-fill,
+.mat-slider.mat-accent .mat-slider-thumb,
+.mat-slider.mat-accent .mat-slider-thumb-label {
+  background-color: #3c73aa !important;
+}
+
+::ng-deep .ngx-ic-overlay {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+::ng-deep
+  [_nghost-dyq-c245]
+  > div[_ngcontent-dyq-c245]
+  img.ngx-ic-source-image[_ngcontent-dyq-c245] {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50%;
+  transform-origin: center;
+}
+
+// ::ng-deep .pz-zoom-button.pz-zoom-control-position-bottom {
+//   display: none;
+// }
+
+#watermark {
+  display: none !important;
+}
+
+.form-control:focus,
+.form-control[focus] {
+  border-color: #ced4da !important;
+}
+
+.mat-step-header.cdk-keyboard-focused,
+.mat-step-header.cdk-program-focused,
+.mat-step-header:hover:not([aria-disabled]),
+.mat-step-header:hover[aria-disabled="false"] {
+  background-color: transparent;
+}
+
+button.cancel {
+  border: 1px solid #3c73aa;
+  box-shadow: none !important;
+  color: #3c73aa;
+  height: 38px;
+  font-size: 13px;
+}
+
+:ng-deep .mat-select-trigger {
+  height: auto;
+  min-height: 34px !important;
+}
+
+textarea {
+  height: auto !important;
+  max-height: 200px !important;
+  overflow: auto !important;
+  border: 1px solid #e0e0e0 !important;
+  outline: none;
+  padding: 6px 10px !important;
+  border-radius: 6px;
+  resize: none;
+  min-height: 80px;
+  font-size: 16px;
+  background: #f6f6f6;
+  box-sizing: border-box !important;
+}
+
+input.form-control {
+  background: #f6f6f6 !important;
+}
+
+.textarea:focus,
+.textarea[focus] {
+  border-color: #ced4da !important;
+}
+
+::ng-deep {
+  .mat-radio-outer-circle {
+    height: 18px;
+    width: 18px;
+  }
+
+  .mat-radio-inner-circle {
+    height: 18px;
+    width: 18px;
+  }
+}
+
+body.popup-open {
+  .outer-side-bar {
+    height: 100%;
+  }
+
+  .sidebar {
+    height: 100% !important;
+  }
+
+  .inner-small-sidebar {
+    height: 90%;
+  }
+
+  .dashboard {
+    background: #1d617a;
+  }
+
+  .user-profile {
+    display: none;
+  }
+
+  .child-leftsidebar {
+    height: 150%;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-green {
+  color: #3c73aa;
+}
+
+.border-top-actions {
+  border-top-color: rgba(0, 0, 0, 0.12);
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin: 0 -16px -16px -16px;
+  height: 60px;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.mat-button-disabled {
+  border: 1px solid #e0e0e0 !important;
+  background: #e0e0e0 !important;
+}
+
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  background-color: inherit;
+}
+
+.mat-step-icon-content {
+  color: #2e2c34;
+}
+
+// toggle Button Css #Start
+
+.toggle {
+  --width: 50px;
+  // --height: calc(var(--width) / 2.5);
+  height: 25px !important;
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: var(--height);
+  cursor: pointer;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--height);
+  background-color: #ccc;
+  border-radius: 100px;
+  transition: all 0.4s ease-in-out;
+}
+
+.toggle .slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: calc(var(--height) / 2);
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease-in-out;
+  border-radius: 100px;
+}
+
+.toggle input:checked + .slider {
+  background-color: #3568e5;
+}
+.toggle .labels {
+  display: none;
+}
+
+.toggle input:checked + .slider::before {
+  // transform: translateX(calc(var(--width) - var(--height)));
+  transform: translateX(26px);
+}
+
+.toggle .labels {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  font-family: sans-serif;
+  transition: all 0.4s ease-in-out;
+}
+
+.toggle .labels::after {
+  content: attr(data-off);
+  position: absolute;
+  font-size: 9px;
+  right: 5px;
+  color: #4d4d4d;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+  top: 2px;
+}
+
+.toggle .labels::before {
+  content: attr(data-on);
+  position: absolute;
+  left: 5px;
+  color: #ffffff;
+  opacity: 0;
+  top: 2px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+.toggle input:checked ~ .labels::after {
+  opacity: 0;
+}
+
+.toggle input:checked ~ .labels::before {
+  opacity: 1;
+}
+
+// toggle Button Css #End
+
+/*--------------------------for-dropdowns-----------------------*/
+button.mat-menu-item {
+  width: 100%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.mat-menu-content button.mat-menu-item {
+  width: 100%;
+  color: #89878d;
+  font-size: 13px;
+  height: 35px;
+  padding: 6px 13px;
+  line-height: 25px;
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
+/*--------------------------for-dropdowns-----------------------*/
+.flag-dropdown {
+  margin-left: -36px;
+}
+.searchable-dropdown {
+  margin-left: 0px !important;
+}
+
+p {
+  word-break: break-word;
+}
+
+/*------------smart-schedule--------------------*/
+.smart-scheduler-tooltip .smart-scheduler-event:before {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.smart-scroll-viewer {
+  width: 100% !important;
+}
+
+.smart-scroll-viewer-content-container {
+  width: 100% !important;
+}
+
+.smart-tooltip-content
+  .smart-container
+  .smart-scheduler-event-content
+  label.smart-scheduler-event-label {
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+.smart-tooltip-content
+  .smart-container
+  .smart-scheduler-event-content
+  label.smart-scheduler-event-time {
+  font-weight: 500 !important;
+  color: #89878d;
+}
+
+.smart-scheduler-tooltip.smart-tooltip .smart-tooltip-content {
+  flex-direction: column;
+  align-items: flex-start;
+  // padding: 0px 0px 10px 10px;
+  padding: 0px 0px 10px 7px;
+  .card {
+    border: 0;
+    .card-body {
+      text-align: left;
+      padding: 10px 5px 0;
+    }
+  }
+  i.fas.fa-phone-alt,
+  i.fas.fa-envelope,
+  i.fas.fa-calendar {
+    background: #e2edff;
+    border-radius: 50%;
+    color: #3c6ab3 !important;
+    height: 24px;
+    width: 24px;
+    font-size: 12px;
+    padding: 7px 6px;
+  }
+  h4.card-title {
+    margin-bottom: 0px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  p.card-title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #9f9c9c;
+  }
+}
+
+/*------------smart-schedule--------------------*/
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #009688;
+}
+.mat-option {
+  height: 35px !important;
+  font-size: 13px !important;
+}
+.mat-option:hover {
+  background: #dbe6f1 !important;
+  color: #255384;
+}
+.mat-option.mat-active {
+  background: #dbe6f1 !important;
+  color: #255384 !important;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #3c73aa !important;
+}
+.mat-form-field.mat-focused .mat-select-arrow {
+  color: #3c73aa !important;
+}
+
+.mat-dialog-container {
+  padding: 16px !important;
+  border-radius: 10px !important;
+}
+.mat-dialog-content {
+  margin: 0 -16px !important;
+}
+
+.dialog-header {
+  border-bottom: 1px solid #e7dfdf;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  margin: 0 -16px 12px -16px;
+  padding: 0 16px 14px 16px;
+  h1 {
+    margin-bottom: 0;
+    font-size: 23px;
+    font-weight: 500;
+  }
+}
+
+::placeholder {
+  color: #b7b7b7;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+:-ms-input-placeholder {
+  color: #b7b7b7;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+::-ms-input-placeholder {
+  color: #b7b7b7;
+  font-size: 15px;
+  font-weight: 400;
+}

@@ -1,0 +1,19 @@
+mat-card.auth-card {
+  max-width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  mat-card.auth-card {
+    max-width: 75%;
+    margin: 10px auto 0;
+  }
+}
+@media screen and (max-width: 750px) {
+  mat-card.auth-card {
+    max-width: 95%;
+  }
+  .login-page h3 {
+    font-size: 17px;
+    margin: 0 0 2px 0;
+  }
+}

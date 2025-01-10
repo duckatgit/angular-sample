@@ -1,0 +1,78 @@
+<div class="login-page">
+  <mat-card class="auth-card">
+    <div class="login-container">
+      <h2 class="heading-login-text text-center">Login</h2>
+      <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-b">
+          <label>Email Address</label>
+          <div class="position-relative">
+            <img
+              src="../../../assets/images/email.png"
+              class="position-icon Email"
+            />
+            <input
+              type="text"
+              formControlName="email"
+              placeholder="Johndoe123@gmail.com"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  f['email'].invalid && (f['email'].dirty || f['email'].touched)
+              }"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <div class="position-relative">
+            <img
+              src="../../../assets/images/password.png"
+              class="position-icon lock"
+            />
+            <i
+              (click)="onPasswordType()"
+              class="fas {{ isPasswordType ? 'fa-eye' : 'fa-eye-slash' }}"
+            ></i>
+            <input
+              [type]="isPasswordType ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="JohnDoe@123"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  f['password'].invalid &&
+                  (f['password'].dirty || f['password'].touched)
+              }"
+            />
+          </div>
+        </div>
+
+        <div
+          class="d-flex forget-password"
+          style="justify-content: space-between"
+        >
+          <p><a routerLink="/reset-password">Forgot Password?</a></p>
+        </div>
+        <div class="text-center">
+          <button
+            type="submit"
+            class="continue"
+            mat-raised-button
+            color="primary"
+            [disabled]="!loginForm.valid"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+
+      <div class="already text-center" style="margin-top: 16px">
+        <p>
+          Don't have an account?
+          <a href="javascript:void(0)" (click)="onCreateAccount()"> Sign Up </a>
+        </p>
+      </div>
+    </div>
+  </mat-card>
+</div>

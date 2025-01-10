@@ -1,0 +1,82 @@
+.login-page{
+::ng-deep {
+  .mat-form-field {
+    width: calc(100% - 40px);
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: inherit !important;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0 !important;
+  }
+  .mat-form-field-underline {
+    display: none !important;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    height: 30px !important;
+    align-items: center;
+  }
+  .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+    transform: translateY(-15%) !important;
+  }
+  .enter-phone {
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+  }
+}
+}
+
+.right-overflow {
+  display: initial;
+}
+
+.input-icon {
+  position: absolute;
+  right: 4px;
+  cursor: pointer;
+}
+
+.country-signup {
+  .enter-phone .form-control {
+    height: auto !important;
+  }
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+    margin: 0;
+    border: 0;
+    padding: 10px 0;
+  }
+}
+
+h2.heading-login-text {
+  font-size: 21px;
+  margin: 0 0 30px 0;
+}
+.mb-b {
+  margin-bottom: 16px;
+}
+
+.position-icon.Email {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  width: 18px;
+}
+.position-icon.uername {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  width: 16px;
+}
+
+.position-icon.lock {
+  position: absolute;
+  top: 13px;
+  left: 10px;
+  width: 16px;
+}
+
+.country-signup .enter-phone .c-height .form-control {
+  height: 43px !important;
+  width: 100% !important;
+}
